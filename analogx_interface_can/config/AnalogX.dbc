@@ -1,0 +1,83 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+
+BS_:
+
+BU_:
+
+
+BO_ 2148419092 AnalogX1: 8 Vector__XXX
+ SG_ Throttle_Position : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_Pedal_Position : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_Pressure : 0|16@1+ (1,0) [0|0] "mV" Vector__XXX
+
+BO_ 2148419348 AnalogX2: 8 Vector__XXX
+ SG_ Brake_Pressure : 0|16@1+ (1,0) [0|5000] "mV" Vector__XXX
+
+BO_ 1420 Front_Right_Wheel_Encoder: 8 Vector__XXX
+ SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
+
+BO_ 1440 Front_Left_Wheel_Encoder: 8 Vector__XXX
+ SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
+
+BO_ 1419 Rear_Axle_Wheel_Encoder: 8 Vector__XXX
+ SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
+
+BO_ 1221 Brake_Temp: 8 Vector__XXX
+ SG_ Temp : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147524896 Front_Left_External_Tire_Temp: 8 Vector__XXX
+ SG_ Inside : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inside_Middle : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside_Middle : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147525152 Front_Right_External_Tire_Temp: 8 Vector__XXX
+ SG_ Inside : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inside_Middle : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside_Middle : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147525408 Rear_Left_External_Tire_Temp: 8 Vector__XXX
+ SG_ Outside_Middle : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inside : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inside_Middle : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147525664 Rear_Right_External_Tire_Temp: 8 Vector__XXX
+ SG_ Inside : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inside_Middle : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside_Middle : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Outside : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1224 Brake_Sensor_Body_Temp: 8 Vector__XXX
+ SG_ Temperature : 55|16@0+ (1,0) [0|0] "C" Vector__XXX
+
+
+CM_ SG_ 2148419092 Throttle_Position "Throttle Position from AnalogX1";
+CM_ SG_ 2148419092 Brake_Pedal_Position "Brake Position from Analogx1";
+CM_ SG_ 2148419092 Brake_Pressure "Brake Pressure from Analogx1";
+CM_ SG_ 2148419348 Brake_Pressure "Brake Pressure from AnalogX2";
+CM_ SG_ 1224 Temperature "Celsius = (temp / 10) -100";
