@@ -33,18 +33,6 @@ BO_ 2148419092 AnalogX1: 8 Vector__XXX
  SG_ Brake_Pedal_Position : 16|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Brake_Pressure : 0|16@1+ (1,0) [0|0] "mV" Vector__XXX
 
-BO_ 2148419348 AnalogX2: 8 Vector__XXX
- SG_ Brake_Pressure : 0|16@1+ (1,0) [0|5000] "mV" Vector__XXX
-
-BO_ 1420 Front_Right_Wheel_Encoder: 8 Vector__XXX
- SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
-
-BO_ 1440 Front_Left_Wheel_Encoder: 8 Vector__XXX
- SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
-
-BO_ 1419 Rear_Axle_Wheel_Encoder: 8 Vector__XXX
- SG_ Velocity : 32|16@1- (1,0) [-3200|3200] "" Vector__XXX
-
 BO_ 1221 Brake_Temp: 8 Vector__XXX
  SG_ Temp : 15|16@0+ (1,0) [0|0] "" Vector__XXX
 

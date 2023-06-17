@@ -49,14 +49,6 @@ AnalogxInterfaceCAN::AnalogxInterfaceCAN(const rclcpp::NodeOptions & options)
     "can_rx", 20
   );
   pubAnalogx1_ = this->create_publisher<Analogx1>("analogx1", rclcpp::SensorDataQoS());
-  pubAnalogx2_ = this->create_publisher<Analogx2>("analogx2", rclcpp::SensorDataQoS());
-  pubFrontRightWheelEncoder_ = this->create_publisher<FrontRightWheelEncoder>(
-    "front_right_wheel_encoder", rclcpp::SensorDataQoS());
-  pubFrontLeftWheelEncoder_ = this->create_publisher<FrontLeftWheelEncoder>(
-    "front_left_wheel_encoder", rclcpp::SensorDataQoS());
-  pubRearAxleWheelEncoder_ = this->create_publisher<RearAxleWheelEncoder>(
-    "rear_axle_wheel_encoder",
-    rclcpp::SensorDataQoS());
   pubBrakeTemp_ = this->create_publisher<BrakeTemp>("brake_temp", rclcpp::SensorDataQoS());
   pubFrontLeftExternalTireTemp_ = this->create_publisher<FrontLeftExternalTireTemp>(
     "front_left_external_tire_temp", rclcpp::SensorDataQoS());
@@ -92,18 +84,6 @@ void AnalogxInterfaceCAN::recvCAN(const Frame::SharedPtr msg)
       case ID_ANALOGX1:
         RECV_DBC(recvAnalogx1);
         break;
-      case ID_ANALOGX2:
-        RECV_DBC(recvAnalogx2);
-        break;
-      case ID_FRONT_RIGHT_WHEEL_ENCODER:
-        RECV_DBC(recvFrontRightWheelEncoder);
-        break;
-      case ID_FRONT_LEFT_WHEEL_ENCODER:
-        RECV_DBC(recvFrontLeftWheelEncoder);
-        break;
-      case ID_REAR_AXLE_WHEEL_ENCODER:
-        RECV_DBC(recvRearAxleWheelEncoder);
-        break;
       case ID_BRAKE_TEMP:
         RECV_DBC(recvBrakeTemp);
         break;
@@ -138,50 +118,6 @@ void AnalogxInterfaceCAN::recvAnalogx1(const Frame::SharedPtr msg, DbcMessage * 
   out.throttle_position = message->GetSignal("Throttle_Position")->GetResult();
 
   pubAnalogx1_->publish(out);
-}
-
-void AnalogxInterfaceCAN::recvAnalogx2(const Frame::SharedPtr msg, DbcMessage * message)
-{
-  Analogx2 out;
-  out.stamp = msg->header.stamp;
-
-  out.brake_pressure = message->GetSignal("Brake_Pressure")->GetResult();
-
-  pubAnalogx2_->publish(out);
-}
-
-void AnalogxInterfaceCAN::recvFrontRightWheelEncoder(
-  const Frame::SharedPtr msg,
-  DbcMessage * message)
-{
-  FrontRightWheelEncoder out;
-  out.stamp = msg->header.stamp;
-
-  out.velocity = message->GetSignal("Velocity")->GetResult();
-
-  pubFrontRightWheelEncoder_->publish(out);
-}
-
-void AnalogxInterfaceCAN::recvFrontLeftWheelEncoder(
-  const Frame::SharedPtr msg,
-  DbcMessage * message)
-{
-  FrontLeftWheelEncoder out;
-  out.stamp = msg->header.stamp;
-
-  out.velocity = message->GetSignal("Velocity")->GetResult();
-
-  pubFrontLeftWheelEncoder_->publish(out);
-}
-
-void AnalogxInterfaceCAN::recvRearAxleWheelEncoder(const Frame::SharedPtr msg, DbcMessage * message)
-{
-  RearAxleWheelEncoder out;
-  out.stamp = msg->header.stamp;
-
-  out.velocity = message->GetSignal("Velocity")->GetResult();
-
-  pubRearAxleWheelEncoder_->publish(out);
 }
 
 void AnalogxInterfaceCAN::recvBrakeTemp(const Frame::SharedPtr msg, DbcMessage * message)

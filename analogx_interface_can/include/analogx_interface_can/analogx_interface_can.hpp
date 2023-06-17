@@ -45,10 +45,6 @@
 // ROS messages
 #include "can_msgs/msg/frame.hpp"
 #include "analogx_interface_msgs/msg/analogx1.hpp"
-#include "analogx_interface_msgs/msg/analogx2.hpp"
-#include "analogx_interface_msgs/msg/front_right_wheel_encoder.hpp"
-#include "analogx_interface_msgs/msg/front_left_wheel_encoder.hpp"
-#include "analogx_interface_msgs/msg/rear_axle_wheel_encoder.hpp"
 #include "analogx_interface_msgs/msg/brake_temp.hpp"
 #include "analogx_interface_msgs/msg/front_left_external_tire_temp.hpp"
 #include "analogx_interface_msgs/msg/front_right_external_tire_temp.hpp"
@@ -67,10 +63,6 @@ using can_msgs::msg::Frame;
 using NewEagle::DbcMessage;
 
 using analogx_interface_msgs::msg::Analogx1;
-using analogx_interface_msgs::msg::Analogx2;
-using analogx_interface_msgs::msg::FrontRightWheelEncoder;
-using analogx_interface_msgs::msg::FrontLeftWheelEncoder;
-using analogx_interface_msgs::msg::RearAxleWheelEncoder;
 using analogx_interface_msgs::msg::BrakeTemp;
 using analogx_interface_msgs::msg::FrontLeftExternalTireTemp;
 using analogx_interface_msgs::msg::FrontRightExternalTireTemp;
@@ -95,10 +87,6 @@ private:
   void recvCAN(const Frame::SharedPtr msg);
 
   void recvAnalogx1(const Frame::SharedPtr msg, DbcMessage * message);
-  void recvAnalogx2(const Frame::SharedPtr msg, DbcMessage * message);
-  void recvFrontRightWheelEncoder(const Frame::SharedPtr msg, DbcMessage * message);
-  void recvFrontLeftWheelEncoder(const Frame::SharedPtr msg, DbcMessage * message);
-  void recvRearAxleWheelEncoder(const Frame::SharedPtr msg, DbcMessage * message);
   void recvBrakeTemp(const Frame::SharedPtr msg, DbcMessage * message);
   void recvFrontLeftExternalTireTemp(const Frame::SharedPtr msg, DbcMessage * message);
   void recvFrontRightExternalTireTemp(const Frame::SharedPtr msg, DbcMessage * message);
@@ -114,24 +102,9 @@ private:
   float max_steer_angle_;
   bool publish_my_laps_;
 
-  rclcpp::Subscription<Analogx1>::SharedPtr subAnalogx1_;
-  rclcpp::Subscription<Analogx2>::SharedPtr subAnalogx2_;
-  rclcpp::Subscription<FrontRightWheelEncoder>::SharedPtr subFrontRightWheelEncoder_;
-  rclcpp::Subscription<FrontLeftWheelEncoder>::SharedPtr subFrontLeftWheelEncoder_;
-  rclcpp::Subscription<RearAxleWheelEncoder>::SharedPtr subRearAxleWheelEncoder_;
-  rclcpp::Subscription<BrakeTemp>::SharedPtr subBrakeTemp_;
-  rclcpp::Subscription<FrontLeftExternalTireTemp>::SharedPtr subFrontLeftExternalTireTemp_;
-  rclcpp::Subscription<FrontRightExternalTireTemp>::SharedPtr subFrontRightExternalTireTemp_;
-  rclcpp::Subscription<RearLeftExternalTireTemp>::SharedPtr subRearLeftExternalTireTemp_;
-  rclcpp::Subscription<RearRightExternalTireTemp>::SharedPtr subRearRightExternalTireTemp_;
-  rclcpp::Subscription<BrakeSensorBodyTemp>::SharedPtr subBrakeSensorBodyTemp_;
   rclcpp::Subscription<Frame>::SharedPtr sub_can_;
 
   rclcpp::Publisher<Analogx1>::SharedPtr pubAnalogx1_;
-  rclcpp::Publisher<Analogx2>::SharedPtr pubAnalogx2_;
-  rclcpp::Publisher<FrontRightWheelEncoder>::SharedPtr pubFrontRightWheelEncoder_;
-  rclcpp::Publisher<FrontLeftWheelEncoder>::SharedPtr pubFrontLeftWheelEncoder_;
-  rclcpp::Publisher<RearAxleWheelEncoder>::SharedPtr pubRearAxleWheelEncoder_;
   rclcpp::Publisher<BrakeTemp>::SharedPtr pubBrakeTemp_;
   rclcpp::Publisher<FrontLeftExternalTireTemp>::SharedPtr pubFrontLeftExternalTireTemp_;
   rclcpp::Publisher<FrontRightExternalTireTemp>::SharedPtr pubFrontRightExternalTireTemp_;

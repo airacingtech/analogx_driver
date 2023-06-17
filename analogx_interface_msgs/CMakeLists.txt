@@ -24,10 +24,6 @@ find_package(rosidl_default_generators REQUIRED)
 
 set(msg_files
     "msg/Analogx1.msg"
-	"msg/Analogx2.msg"
-	"msg/FrontRightWheelEncoder.msg"
-	"msg/FrontLeftWheelEncoder.msg"
-	"msg/RearAxleWheelEncoder.msg"
 	"msg/BrakeTemp.msg"
 	"msg/FrontLeftExternalTireTemp.msg"
 	"msg/FrontRightExternalTireTemp.msg"
